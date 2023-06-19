@@ -10,7 +10,7 @@
                 <li> <router-link to="/condutor">Condutor</router-link></li>
                 <li> <router-link to="/marca">Marca</router-link></li>
                 <li> <router-link to="/modelo">Modelo</router-link></li>
-                <li> <router-link to="/">Veiculo</router-link></li>
+                <li> <router-link to="/veiculo">Veiculo</router-link></li>
                 
          </ul>
         </div>
