@@ -4,8 +4,8 @@
       <h1>PÁGINA INICIAL</h1>
     </div>
     <div class="botao">
-      <button type="button" class="btn btn-outline-danger">Cadastrar movimentação</button>
-    </div>
+        <button  type="button" onclick="window.location.href='/cadastromovimentacao'" class="btn btn-outline-success">Cadastrar movimentação</button>
+      </div>
 
     <div class="divtabela">
       <div class="tabela">
@@ -17,6 +17,8 @@
               <th scope="col">CPF</th>
               <th scope="col">Marca</th>
               <th scope="col">Modelo</th>
+              <th scope="col">Placa</th>
+              <th scope="col">Data/hora de entrada</th>
               <th scope="col">Ação</th>
              
             </tr>
@@ -28,6 +30,8 @@
               <td>011.235.351-53</td>
               <td>Chevrollet</td>
               <td>Corvette</td>
+              <td>SOF-1293</td>
+              <td>18/06/2023 - 12:20:32</td>
               <td>
                 <div class="dropdown">
                   <button
@@ -55,6 +59,8 @@
               <td>925.512.515-82</td>
               <td>Porsche</td>
               <td>911</td>
+              <td>KSE-2935</td>
+              <td>18/06/2023 - 10:51:12</td>
               <td>
                 <div class="dropdown">
                   <button
@@ -81,6 +87,8 @@
               <td>235.163.725-82</td>
               <td>Toyota</td>
               <td>Corolla</td>
+              <td>ISD-2834</td>
+              <td>18/06/2023 - 09:42:52</td>
               <td>
                 <div class="dropdown">
                   <button
@@ -107,6 +115,8 @@
               <td>262.732.924-91</td>
               <td>Chevrolet</td>
               <td>S10</td>
+              <td>VDR-2384</td>
+              <td>18/06/2023 - 08:23:36</td>
               <td>
                 <div class="dropdown">
                   <button

@@ -3,8 +3,8 @@
       <div class="hometitulom">
         <h1>MARCAS</h1>
       </div>
-      <div class="botaom">
-        <button type="button" class="btn btn-outline-success">Cadastrar marca</button>
+      <div class="botaoma">
+        <button  type="button" onclick="window.location.href='/cadastromarca'" class="btn btn-outline-success">Cadastrar marca</button>
       </div>
   
       <div class="divtabelam">
@@ -138,7 +138,7 @@
     
   }
   
-  .botaom {
+  .botaoma {
     display: flex;
     align-items: center;
     justify-content: center;

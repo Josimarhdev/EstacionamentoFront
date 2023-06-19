@@ -1,10 +1,10 @@
 <template>
     <div class="mainhomev">
       <div class="hometitulov">
-        <h1>MODELOS</h1>
+        <h1>VEÍCULOS</h1>
       </div>
       <div class="botaov">
-        <button type="button" class="btn btn-outline-success">Cadastrar modelo</button>
+        <button  type="button" onclick="window.location.href='/cadastroveiculo'" class="btn btn-outline-success">Cadastrar veículo</button>
       </div>
   
       <div class="divtabelav">
@@ -151,7 +151,7 @@
                 <td>Focus</td>
                 <td>BSD-2384</td>
                 <td>2003</td>
-                <td>Vermeho</td>
+                <td>Vermeho        </td>
 
                 <td>
                   <button type="button" class="btn btn-outline-danger">

@@ -4,8 +4,8 @@
       <h1>CONDUTORES</h1>
     </div>
     <div class="botaoc">
-      <button type="button" class="btn btn-outline-success">Cadastrar condutor</button>
-    </div>
+        <button  type="button" onclick="window.location.href='/cadastrocondutor'" class="btn btn-outline-success">Cadastrar condutor</button>
+      </div>
 
     <div class="divtabelac">
       <div class="tabelac">
@@ -16,8 +16,6 @@
               <th scope="col">Nome</th>
               <th scope="col">CPF</th>
               <th scope="col">Telefone</th>
-              <th scope="col">Marca</th>
-              <th scope="col">Modelo</th>
               <th scope="col">Ação</th>
             </tr>
           </thead>
@@ -27,8 +25,6 @@
               <td>João</td>
               <td>011.235.351-53</td>
               <td>45991290404</td>
-              <td>Chevrolet</td>
-              <td>Corvette</td>
               <td>
                 <button type="button" class="btn btn-outline-danger">
                   Excluir
@@ -43,8 +39,6 @@
               <td>Maria</td>
               <td>925.512.515-82</td>
               <td>45981728463</td>
-              <td>Porsche</td>
-              <td>911</td>
               <td>
                 <button type="button" class="btn btn-outline-danger">
                   Excluir
@@ -59,8 +53,6 @@
               <td>Carlos</td>
               <td>235.163.725-82</td>
               <td>45927458265</td>
-              <td>Toyota</td>
-              <td>Corolla</td>
               <td>
                 <button type="button" class="btn btn-outline-danger">
                   Excluir
@@ -75,8 +67,6 @@
               <td>Vagner</td>
               <td>262.732.924-91</td>
               <td>45927452652</td>
-              <td>Chevrolet</td>
-              <td>S10</td>
               <td>
                 <button type="button" class="btn btn-outline-danger">
                   Excluir
@@ -91,8 +81,6 @@
               <td>Leticia</td>
               <td>023.523.632-62</td>
               <td>45923845285</td>
-              <td>Nissan</td>
-              <td>Skyline</td>
               <td>
                 <button type="button" class="btn btn-outline-danger">
                   Excluir
@@ -107,8 +95,6 @@
               <td>Maycon</td>
               <td>923.492.294-82</td>
               <td>45929349582</td>
-              <td>Toyota</td>
-              <td>Hilux</td>
               <td>
                 <button type="button" class="btn btn-outline-danger">
                   Excluir
@@ -124,8 +110,6 @@
               <td>Fred</td>
               <td>923.429.532=23</td>
               <td>45928347321</td>
-              <td>Nissan</td>
-              <td>GTR</td>
               <td>
                 <button type="button" class="btn btn-outline-danger">
                   Excluir
@@ -142,8 +126,6 @@
               <td>John</td>
               <td>923.429.219-12</td>
               <td>45928348532</td>
-              <td>Porsche</td>
-              <td>Cayenne</td>
               <td>
                 <button type="button" class="btn btn-outline-danger">
                   Excluir
