@@ -1,7 +1,7 @@
 <template>
 <footer>
 <div class="mainfooter">
-<p class="textofooter">Estacionamento Josi dos Mares, 2023</p>
+<p class="textofooter">Estacionamento do Josimar, 2023</p>
 </div>
 </footer>
 </template>

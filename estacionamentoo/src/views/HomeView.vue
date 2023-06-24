@@ -14,11 +14,13 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Nome</th>
-              <th scope="col">CPF</th>
               <th scope="col">Marca</th>
               <th scope="col">Modelo</th>
+              <th scope="col">CPF</th>          
               <th scope="col">Placa</th>
               <th scope="col">Data/hora de entrada</th>
+
+   
               <th scope="col">Ação</th>
              
             </tr>
@@ -27,11 +29,12 @@
             <tr>
               <td>1</td>
               <td>João</td>
-              <td>011.235.351-53</td>
               <td>Chevrollet</td>
               <td>Corvette</td>
+              <td>011.235.351-53</td>
               <td>SOF-1293</td>
               <td>18/06/2023 - 12:20:32</td>
+             
               <td>
                 <div class="dropdown">
                   <button
@@ -44,7 +47,7 @@
                   </button>
                   <ul class="dropdown-menu">
                     <li>
-                      <a class="dropdown-item" href="#">Registrar Saída</a>
+                      <a class="dropdown-item" href="/relatorio">Registrar Saída</a>
                     </li>
                     <li><a class="dropdown-item" href="#">Editar</a></li>
                     <li><a class="dropdown-item" href="#">Excluir</a></li>
@@ -56,9 +59,10 @@
             <tr>
               <td>2</td>
               <td>Maria</td>
-              <td>925.512.515-82</td>
               <td>Porsche</td>
               <td>911</td>
+              <td>925.512.515-82</td>
+
               <td>KSE-2935</td>
               <td>18/06/2023 - 10:51:12</td>
               <td>
@@ -73,7 +77,7 @@
                   </button>
                   <ul class="dropdown-menu">
                     <li>
-                      <a class="dropdown-item" href="#">Registrar Saída</a>
+                      <a class="dropdown-item" href="/relatorio">Registrar Saída</a>
                     </li>
                     <li><a class="dropdown-item" href="#">Editar</a></li>
                     <li><a class="dropdown-item" href="#">Excluir</a></li>
@@ -84,9 +88,10 @@
             <tr>
               <td>3</td>
               <td>Carlos</td>
-              <td>235.163.725-82</td>
               <td>Toyota</td>
               <td>Corolla</td>
+              <td>235.163.725-82</td>
+
               <td>ISD-2834</td>
               <td>18/06/2023 - 09:42:52</td>
               <td>
@@ -101,7 +106,7 @@
                   </button>
                   <ul class="dropdown-menu">
                     <li>
-                      <a class="dropdown-item" href="#">Registrar Saída</a>
+                      <a class="dropdown-item" href="/relatorio">Registrar Saída</a>
                     </li>
                     <li><a class="dropdown-item" href="#">Editar</a></li>
                     <li><a class="dropdown-item" href="#">Excluir</a></li>
@@ -109,34 +114,7 @@
                 </div>
               </td>
             </tr>
-            <tr>
-              <td>4</td>
-              <td>Vagner</td>
-              <td>262.732.924-91</td>
-              <td>Chevrolet</td>
-              <td>S10</td>
-              <td>VDR-2384</td>
-              <td>18/06/2023 - 08:23:36</td>
-              <td>
-                <div class="dropdown">
-                  <button
-                    class="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Opções
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="#">Registrar Saída</a>
-                    </li>
-                    <li><a class="dropdown-item" href="#">Editar</a></li>
-                    <li><a class="dropdown-item" href="#">Excluir</a></li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
+           
           </tbody>
         </table>
       </div>
@@ -157,32 +135,37 @@
   align-items: center;
   justify-content: center;
 
-  height: 140px;
+  height: 100px;
+
 }
 
 .divtabela {
   width: 100%;
 
   display: flex;
+  
+  justify-content: flex-start;
+  align-items: flex-start;
 
-  justify-content: center;
-  align-items: center;
 }
 
 .tabela {
-  width: 65%;
+  width: 100%;
 }
 
 .hometitulo h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 40px;
+  
+  font-size: 50px;
   font-weight: bold;
   color: black;
   text-transform: uppercase;
   text-decoration: underline;
   letter-spacing: 2px;
   height: 18vh;
+
 }
+
 </style>

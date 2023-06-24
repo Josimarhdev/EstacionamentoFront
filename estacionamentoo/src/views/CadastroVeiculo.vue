@@ -83,6 +83,9 @@
         </li>
       </ul>
       <div class="botaoconfirmarveiculo">
+        <button type="button" class="btn btn-outline-danger">
+                  Voltar
+                </button>
         <button
           type="button"
           onclick="window.location.href='/veiculo'"
@@ -128,8 +131,14 @@
 .botaoconfirmarveiculo {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   padding-top: 50px;
+}
+
+.botaoconfirmarveiculo button{
+
+margin-left: 5px;
+
 }
 </style>

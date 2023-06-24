@@ -7,11 +7,14 @@
         <ul class="list-group">
       
           <li class="list-group-item">
-            <input class="form-control me-2" type="text" placeholder="Nome da marca" />
+            <input id="nome-marca" class="form-control me-2" type="text" placeholder="Nome da marca" />
           </li>
          
         </ul>
         <div class="botaoconfirmarmarca">
+            <button type="button" class="btn btn-outline-danger">
+                  Voltar
+                </button>
           <button
             type="button"
             onclick="window.location.href='/marca'"
@@ -23,6 +26,9 @@
       </div>
     </div>
   </template>
+
+
+
   
   <style>
   .maincadastroma {
@@ -57,9 +63,15 @@
   .botaoconfirmarmarca {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     padding-top: 50px;
+  }
+
+  .botaoconfirmarmarca button{
+
+    margin-left: 5px;
+
   }
   </style>
   

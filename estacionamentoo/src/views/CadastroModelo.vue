@@ -32,6 +32,9 @@
           
         </ul>
         <div class="botaoconfirmarmodelo">
+            <button type="button" class="btn btn-outline-danger">
+                  Voltar
+                </button>
           <button
             type="button"
             onclick="window.location.href='/modelo'"
@@ -77,9 +80,16 @@
   .botaoconfirmarmodelo {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     padding-top: 50px;
+  }
+  .botaoconfirmarmodelo button{
+
+    margin-left: 5px;
+
+
+
   }
   </style>
   

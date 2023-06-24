@@ -140,63 +140,47 @@
 </template>
 
 <style>
-.mainhomemo {
-  background-color: white;
-}
-
-.botaomo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 35px;
-  height: 50px;
-}
-
-.divtabelamo {
-  width: 100%;
-
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-}
-
-.tabelamo {
-  width: 65%;
-}
-
-.hometitulomo h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  font-weight: bold;
-  color: black;
-  text-transform: uppercase;
-  text-decoration: underline;
-  letter-spacing: 2px;
-  height: 10vh;
-}
-
-button {
-  margin-right: 10px;
-}
-
-.seletordemarca {
-  margin-top: 10px;
-  margin-bottom: 30px;
-  padding-right: 40px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-radius: 5px;
-  opacity: 0.7;
-}
-
-.botaomo {
+ .mainhomemo {
+    background-color: white;
+    
+  }
+  
+  .botaomo {
     display: flex;
     align-items: center;
     justify-content: center;
+   
     margin-bottom: 35px;
     height: 50px;
+  }
+  
+  .divtabelamo {
+    width: 100%;
+  
+    display: flex;
+  
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tabelamo {
+    width: 100%;
+  }
+  
+  .hometitulomo h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+    text-decoration: underline;
+    letter-spacing: 2px;
+    height: 10vh;
+  }
+  
+  button {
+    margin-right: 10px;
   }
 </style>

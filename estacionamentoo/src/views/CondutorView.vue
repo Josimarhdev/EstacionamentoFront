@@ -154,28 +154,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 35px;
+  
   height: 50px;
+  
+  margin-bottom: 20px;
 }
 
 .divtabelac {
   width: 100%;
 
   display: flex;
-
+  
   justify-content: center;
   align-items: center;
 }
 
 .tabelac {
-  width: 65%;
+  width: 100%;
 }
 
 .hometituloc h1 {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 40px;
+ 
+  justify-content:center;
+  
+  font-size: 50px;
   font-weight: bold;
   color: black;
   text-transform: uppercase;

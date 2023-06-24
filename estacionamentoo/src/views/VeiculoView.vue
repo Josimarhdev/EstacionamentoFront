@@ -185,7 +185,7 @@
     height: 50px;
   }
   
-  .divtabelav {
+  .divtabelav{
     width: 100%;
   
     display: flex;
@@ -194,15 +194,15 @@
     align-items: center;
   }
   
-  .tabelav {
-    width: 65%;
+  .tabelav{
+    width: 100%;
   }
   
   .hometitulov h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bold;
     color: black;
     text-transform: uppercase;

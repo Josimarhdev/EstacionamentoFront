@@ -5,17 +5,7 @@
     </div>
     <div class="formulariomov">
       <ul class="list-group">
-        <li class="list-group-item">
-          <select class="seletordemarca" label="Nome">
-            <option selected disabled>Nome do condutor</option>
-            <option>Alice</option>
-            <option>João</option>
-            <option>Marcos</option>
-            <option>Danielli</option>
-            <option>Enzo</option>
-            <option>Fiona</option>
-          </select>
-        </li>
+
         <li class="list-group-item">
         <select class="seletordemarca" label="Nome">
             <option selected disabled>CPF</option>
@@ -23,49 +13,7 @@
             <option>922.324.524-64</option>
           </select>
         </li>
-
-
-
-        <li class="list-group-item">
-          <select class="seletordemarca" label="Modelo">
-            <option selected disabled>marca</option>
-            <option>Corolla</option>
-            <option>911</option>
-            <option>Mustang</option>
-            <option>Camaro</option>
-            <option>Série 3</option>
-            <option>A4</option>
-            <option>Classe C</option>
-            <option>Golf</option>
-            <option>GT-R</option>
-            <option>Civic</option>
-            <option>Sonata</option>
-            <option>Sportage</option>
-            <option>S60</option>
-            <option>Impreza</option>
-            <option>MX-5</option>
-          </select>
-        </li>
-        <li class="list-group-item">
-          <select class="seletordemarca" label="Modelo">
-            <option selected disabled>Modelo</option>
-            <option>Corolla</option>
-            <option>911</option>
-            <option>Mustang</option>
-            <option>Camaro</option>
-            <option>Série 3</option>
-            <option>A4</option>
-            <option>Classe C</option>
-            <option>Golf</option>
-            <option>GT-R</option>
-            <option>Civic</option>
-            <option>Sonata</option>
-            <option>Sportage</option>
-            <option>S60</option>
-            <option>Impreza</option>
-            <option>MX-5</option>
-          </select>
-        </li>
+    
         <li class="list-group-item">
           <select class="seletordemarca" label="placa">
             <option selected disabled>Placa</option>
@@ -80,6 +28,9 @@
 
       </ul>
       <div class="botaoconfirmarmovimentacao">
+        <button type="button" class="btn btn-outline-danger">
+                  Voltar
+                </button>
         <button
           type="button"
           onclick="window.location.href='/'"
@@ -125,8 +76,13 @@
 .botaoconfirmarmovimentacao {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   padding-top: 50px;
+  
+}
+.botaoconfirmarmovimentacao button {
+ margin-left: 5px;
+  
 }
 </style>
