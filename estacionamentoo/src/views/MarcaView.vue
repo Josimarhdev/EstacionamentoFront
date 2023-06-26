@@ -1,139 +1,91 @@
 <template>
-    <div class="mainhomem">
-      <div class="hometitulom">
-        <h1>MARCAS</h1>
-      </div>
-      <div class="botaoma">
-        <button  type="button" onclick="window.location.href='/cadastromarca'" class="btn btn-outline-success">Cadastrar marca</button>
-      </div>
+  <div class="container" style="margin-top: 10px;">
   
-      <div class="divtabelam">
-        <div class="tabelam">
-          <table class="table table-striped table-bordered table-responsive">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Marca</th>
-                <th scope="col">Ação</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Chevrolet</td>
-                <td>
-                  <button type="button" class="btn btn-outline-danger">
-                    Excluir
-                  </button>
-                  <button type="button" class="btn btn-outline-warning">
-                    Editar
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Porsche</td>
-                <td>
-                  <button type="button" class="btn btn-outline-danger">
-                    Excluir
-                  </button>
-                  <button type="button" class="btn btn-outline-warning">
-                    Editar
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Toyota</td>
-                <td>
-                  <button type="button" class="btn btn-outline-danger">
-                    Excluir
-                  </button>
-                  <button type="button" class="btn btn-outline-warning">
-                    Editar
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Hyundai</td>
-
-                <td>
-                  <button type="button" class="btn btn-outline-danger">
-                    Excluir
-                  </button>
-                  <button type="button" class="btn btn-outline-warning">
-                    Editar
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Nissan</td>
-
-                <td>
-                  <button type="button" class="btn btn-outline-danger">
-                    Excluir
-                  </button>
-                  <button type="button" class="btn btn-outline-warning">
-                    Editar
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>6</td>
-
-
-                <td>Volkswagen</td>
-                <td>
-                  <button type="button" class="btn btn-outline-danger">
-                    Excluir
-                  </button>
-                  <button type="button" class="btn btn-outline-warning">
-                    Editar
-                  </button>
-                </td>
-              </tr>
-  
-              <tr>
-                <td>7</td>
-   
-                <td>Peugeot</td>
-                <td>
-                  <button type="button" class="btn btn-outline-danger">
-                    Excluir
-                  </button>
-                  <button type="button" class="btn btn-outline-warning">
-                    Editar
-                  </button>
-                </td>
-              </tr>
-  
-  
-              <tr>
-                <td>8</td>
- 
-                <td>Ford</td>
-                <td>
-                  <button type="button" class="btn btn-outline-danger">
-                    Excluir
-                  </button>
-                  <button type="button" class="btn btn-outline-warning">
-                    Editar
-                  </button>
-                </td>
-              </tr>
-  
-              
-            </tbody>
-          </table>
-        </div>
+  <div class="row">
+    <div class="col-md-10 text-start"> <p class="fs-3"> Lista de Marcas </p> </div>
+    <div class="col-md-2"> 
+      <div class="d-grid gap-2">
+        <router-link type="button" class="btn btn-success" 
+          to="/cadastromarca">Cadastrar
+        </router-link>
       </div>
     </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">  
+      <table class="table">
+        <thead class="table-secondary" >
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Ativo</th>
+            <th scope="col" class="text-start">Marca</th>
+            <th scope="col">Opção</th>
+          </tr>
+        </thead>  
+        <tbody class="table-group-divider">
+          
+          <tr v-for="item in marcasList" :key="item.id">
+            <th class="col-md-1">{{ item.id }}</th>
+            <th class="col-md-2"> 
+              <span v-if="item.ativo" class="badge text-bg-success"> Ativo </span>
+              <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
+            </th>
+            <th class="text-start">{{ item.nome }}</th>
+            <th class="col-md-2">
+              <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <router-link type="button" class="btn btn-sm btn-warning" 
+                    :to="{ name: 'marca-formulario-editar-view', query: { id: item.id, form: 'editar' } } "> 
+                  Editar 
+                </router-link>
+                <router-link type="button" class="btn btn-sm btn-danger" 
+                    :to="{ name: 'marca-formulario-excluir-view', query: { id: item.id, form: 'deletaMarca' } } ">
+                  Excluir
+                </router-link>
+              </div>
+            </th>
+          </tr>
+  
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+  
+  
   </template>
 
+<script lang="ts">
 
-  
+import { defineComponent } from 'vue';
+
+import MarcaClient from '@/client/marca.client';
+import { Marca } from '@/model/Marca';
+
+export default defineComponent({
+  name: 'MarcaLista',
+  data() {
+    return {
+        marcasList: new Array<Marca>()
+    }
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+
+    findAll() {
+      MarcaClient.listaCompleta()
+        .then(sucess => {
+          this.marcasList = sucess
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
+});
+  </script>
   <style>
   .mainhomem {
     background-color: white;

@@ -18,7 +18,9 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Marca',
    
     component: () => import(/* webpackChunkName: "about" */ '../views/MarcaView.vue')
-  },
+  }, 
+  
+  
   {
     path: '/modelo',
     name: 'Modelo',
@@ -47,8 +49,21 @@ const routes: Array<RouteRecordRaw> = [
     path: '/cadastromarca',
     name: 'CadastroMarca',
    
-    component: () => import(/* webpackChunkName: "about" */ '../views/CadastroMarca.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/CadastroMarca.vue'),
+    children: [
+      {
+        path: '/cadastromarca',
+        name: 'marca-formulario-editar-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/CadastroMarca.vue')
+      },
+      {
+        path: '/cadastromarca',
+        name: 'marca-formulario-excluir-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/CadastroMarca.vue')
+      }
+    ]
   },
+  
   {
     path: '/cadastrocondutor',
     name: 'CadastroCondutor',
@@ -78,6 +93,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Relatorio',
    
     component: () => import(/* webpackChunkName: "about" */ '../views/Relatorio.vue')
+  },
+  {
+    path: '/cadastromarca',
+    name: 'marca-lista-view',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CadastroMarca.vue')
   }
   
 ]
