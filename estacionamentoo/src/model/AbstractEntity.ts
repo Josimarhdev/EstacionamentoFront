@@ -1,7 +1,7 @@
 export class AbstractEntity{
 
 
-    id! : Number;
+    id! : number;
     cadastro? : Date;
     edicao? : Date;
     ativo? : Boolean;
