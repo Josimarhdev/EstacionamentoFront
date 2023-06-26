@@ -68,7 +68,19 @@ const routes: Array<RouteRecordRaw> = [
     path: '/cadastrocondutor',
     name: 'CadastroCondutor',
    
-    component: () => import(/* webpackChunkName: "about" */ '../views/CadastroCondutor.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/CadastroCondutor.vue'),
+    children: [
+      {
+        path: '/cadastrocondutor',
+        name: 'condutor-formulario-editar-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/CadastroCondutor.vue')
+      },
+      {
+        path: '/cadastrocondutor',
+        name: 'condutor-formulario-excluir-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/CadastroCondutor.vue')
+      }
+    ]
   },
   {
     path: '/cadastromovimentacao',
@@ -98,6 +110,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/cadastromarca',
     name: 'marca-lista-view',
     component: () => import(/* webpackChunkName: "about" */ '../views/CadastroMarca.vue')
+  },
+  {
+    path: '/cadastrocondutor',
+    name: 'condutor-lista-view',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CadastroCondutor.vue')
   }
   
 ]
