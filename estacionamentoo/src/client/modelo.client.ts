@@ -4,9 +4,9 @@ import { Modelo } from "@/model/Modelo";
 
 
 
-export class ModeloClient {
+class ModeloClient {
 
-    private axiosClient: AxiosInstance;
+    private axiosClient: AxiosInstance
 
     constructor() {
         this.axiosClient = axios.create({
@@ -15,21 +15,22 @@ export class ModeloClient {
         });
     }
 
-    public async findById(id: number) : Promise<Modelo> {
-        try {
-            return (await this.axiosClient.get<Modelo>(`/${id}`)).data
-        } catch (error:any) {
-            return Promise.reject(error.response)
-        }
-    }
+    public async findById(id: number): Promise<Modelo> {
+      try {
+          return (await this.axiosClient.get<Modelo>(`/${id}`)).data
+      } catch (error:any) {
+          return Promise.reject(error.response)
+      }
+  }
 
-    public async ListaCompleta(): Promise<Modelo[]> {
-        try {
-            return (await this.axiosClient.get<Modelo[]>('/')).data;
-        } catch (error: any) {
-            return Promise.reject(error.response);
-        }
+  public async listaCompleta(): Promise<Modelo[]> {
+    try {
+        return (await this.axiosClient.get<Modelo[]>(`/lista`)).data
+    } catch (error:any) {
+        return Promise.reject(error.response)
     }
+}
+
 
     public async findByAtivo(ativo: Boolean): Promise<Modelo[]> {
         try {
@@ -39,31 +40,32 @@ export class ModeloClient {
         }
       }
 
-
-
-	public async cadastrar(modelo: Modelo): Promise<void> {
-		try {
-			return (await this.axiosClient.post('/', modelo))
-		} catch (error:any) {
-			return Promise.reject(error.response)
-		}
-	}
-
-	public async editar(modelo: Modelo): Promise<void> {
-		try {
-			return (await this.axiosClient.put(`/${modelo.id}`, modelo)).data
-		} catch (error:any) {
-			return Promise.reject(error.response)
-		}
-	}
-
-	public async deletaModelo(modelo: Modelo): Promise<void> {
+      public async cadastrar(modelo: Modelo): Promise<string> {
         try {
-          return (await this.axiosClient.delete(`/delete/${modelo.id}`, { data: modelo })).data;
-        } catch (error: any) {
-          return Promise.reject(error.response);
+            return (await this.axiosClient.post<string>(``, modelo)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
         }
-      }
+    }
 
+    public async editar(id: number, modelo: Modelo): Promise<string> {
+      try {
+          return (await this.axiosClient.put<string>(`/${id}`, modelo)).data
+      } catch (error:any) {
+          return Promise.reject(error.response)
+      }
+  }
+
+  public async deletaModelo(id: number): Promise<string> {
+    try {
+        return (await this.axiosClient.delete<string>(`/${id}`)).data
+    } catch (error:any) {
+        return Promise.reject(error.response)
+    }
+}
+
+    
 	
 }
+
+export default new ModeloClient();

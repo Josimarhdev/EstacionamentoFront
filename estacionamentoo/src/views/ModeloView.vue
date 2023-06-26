@@ -1,143 +1,94 @@
 <template>
-  <div class="mainhomemo">
-    <div class="hometitulomo">
-      <h1>MODELOS</h1>
-    </div>
-
-    <div class="botaomo">
-        <button  type="button" onclick="window.location.href='/cadastromodelo'" class="btn btn-outline-success">Cadastrar modelo</button>
-      </div>
-
-    <div class="divtabelamo">
-      <div class="tabelamo">
-        <table class="table table-striped table-bordered table-responsive">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Marca</th>
-              <th scope="col">Modelo</th>
-              <th scope="col">Ação</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Chevrolet</td>
-              <td>Camaro</td>
-              <td>
-                <button type="button" class="btn btn-outline-danger">
-                  Excluir
-                </button>
-                <button type="button" class="btn btn-outline-warning">
-                  Editar
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Porsche</td>
-              <td>911</td>
-              <td>
-                <button type="button" class="btn btn-outline-danger">
-                  Excluir
-                </button>
-                <button type="button" class="btn btn-outline-warning">
-                  Editar
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Toyota</td>
-              <td>Corolla</td>
-              <td>
-                <button type="button" class="btn btn-outline-danger">
-                  Excluir
-                </button>
-                <button type="button" class="btn btn-outline-warning">
-                  Editar
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Hyundai</td>
-              <td>HB20</td>
-
-              <td>
-                <button type="button" class="btn btn-outline-danger">
-                  Excluir
-                </button>
-                <button type="button" class="btn btn-outline-warning">
-                  Editar
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Nissan</td>
-              <td>Skyline</td>
-
-              <td>
-                <button type="button" class="btn btn-outline-danger">
-                  Excluir
-                </button>
-                <button type="button" class="btn btn-outline-warning">
-                  Editar
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>6</td>
-
-              <td>Volkswagen</td>
-              <td>Gol</td>
-              <td>
-                <button type="button" class="btn btn-outline-danger">
-                  Excluir
-                </button>
-                <button type="button" class="btn btn-outline-warning">
-                  Editar
-                </button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>7</td>
-
-              <td>Peugeot</td>
-              <td>307</td>
-              <td>
-                <button type="button" class="btn btn-outline-danger">
-                  Excluir
-                </button>
-                <button type="button" class="btn btn-outline-warning">
-                  Editar
-                </button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>8</td>
-
-              <td>Ford</td>
-              <td>Focus</td>
-
-              <td>
-                <button type="button" class="btn btn-outline-danger">
-                  Excluir
-                </button>
-                <button type="button" class="btn btn-outline-warning">
-                  Editar
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <div class="container" style="margin-top: 10px;">
+  
+  <div class="row">
+    <div class="col-md-10 text-start"> <p class="fs-3"> Lista de Modelos </p> </div>
+    <div class="col-md-2"> 
+      <div class="d-grid gap-2">
+        <router-link type="button" class="btn btn-success" 
+          to="/cadastromodelo">Cadastrar
+        </router-link>
       </div>
     </div>
   </div>
-</template>
+  
+  <div class="row">
+    <div class="col-md-12">  
+      <table class="table">
+        <thead class="table-secondary" >
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Ativo</th>
+            <th scope="col" class="text-start">Modelo</th>
+            <th scope="col" class="text-start">Marca</th>
+            <th scope="col">Opção</th>
+          </tr>
+        </thead>  
+        <tbody class="table-group-divider">
+          
+          <tr v-for="item in modelosList" :key="item.id">
+            <th class="col-md-1">{{ item.id }}</th>
+            <th class="col-md-2"> 
+              <span v-if="item.ativo" class="badge text-bg-success"> Ativo </span>
+              <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
+            </th>
+            <th class="text-start">{{ item.nome }}</th>
+            <th class="text-start">{{ item.marca.nome }}</th>
+            
+            <th class="col-md-2">
+              <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <router-link type="button" class="btn btn-sm btn-warning" 
+                    :to="{ name: 'modelo-formulario-editar-view', query: { id: item.id, form: 'editar' } } "> 
+                  Editar 
+                </router-link>
+                <router-link type="button" class="btn btn-sm btn-danger" 
+                    :to="{ name: 'modelo-formulario-excluir-view', query: { id: item.id, form: 'deletaModelo' } } ">
+                  Excluir
+                </router-link>
+              </div>
+            </th>
+          </tr>
+  
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+  
+  
+  </template>
+
+<script lang="ts">
+
+import { defineComponent } from 'vue';
+
+import ModeloClient from '@/client/modelo.client';
+import { Modelo } from '@/model/Modelo';
+
+export default defineComponent({
+  name: 'ModeloLista',
+  data() {
+    return {
+        modelosList: new Array<Modelo>()
+    }
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+
+    findAll() {
+      ModeloClient.listaCompleta()
+        .then(sucess => {
+          this.modelosList = sucess
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
+});
+  </script>
 
 <style>
  .mainhomemo {
