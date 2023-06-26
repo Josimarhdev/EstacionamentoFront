@@ -138,7 +138,7 @@
 
 .botaoconfirmarveiculo button{
 
-margin-left: 5px;
+margin-left: 4px;
 
 }
 </style>
