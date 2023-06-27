@@ -134,7 +134,15 @@ const routes: Array<RouteRecordRaw> = [
     path: '/configuracoescadastro',
     name: 'ConfiguracoesCadastro',
    
-    component: () => import(/* webpackChunkName: "about" */ '../views/ConfiguracoesCadastro.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/ConfiguracoesCadastro.vue'),
+    children: [
+      {
+        path: '/configuracoescadastro',
+        name: 'configuracoes-formulario-editar-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/ConfiguracoesCadastro.vue')
+      }
+  
+    ]
   },
   {
     path: '/relatorio',

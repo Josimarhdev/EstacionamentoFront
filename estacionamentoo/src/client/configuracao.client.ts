@@ -23,6 +23,14 @@ class ConfiguracaoClient {
       }
   }
 
+  public async listaCompleta(): Promise<Configuracao[]> {
+    try {
+        return (await this.axiosClient.get<Configuracao[]>(`/lista`)).data
+    } catch (error:any) {
+        return Promise.reject(error.response)
+    }
+}
+
 
 
 

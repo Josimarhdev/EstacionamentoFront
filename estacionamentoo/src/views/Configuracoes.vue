@@ -1,52 +1,106 @@
 <template>
-<div class="mainconfigs">
-    <h1 class="titconfig">Configurações</h1>
-<div class="divtabela">
-    <table class="table table-bordered table-striped table-responsive">
-                    <thead>
-                        <tr>
-                        <th scope="col">Valor por hora</th>
-                        <th scope="col">Valor da multa por minuto</th>
-                        <th scope="col">Inicio do expediente</th>
-                        <th scope="col">Fim do expediente</th>
-                        <th scope="col">Tempo desconto </th>
-                        <th scope="col">Tempo de desconto</th>
-                        <th scope="col">Gerar desconto</th>
-                        <th scope="col">Vagas moto</th>
-                        <th scope="col">Vagas carro</th>
-                        <th scope="col">Vagas van</th>
-                        <th scope="col">Opções</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
-                        <tr>
-                        
-                        <td>R$10,00</td>
-                        <td>R$00,20</td>
-                        <td>09:00:00</td>
-                        <td>22:00:00</td>
-                        <td>50:00:00</td>
-                        <td>02:00:00</td>
-                        <td>Sim</td>
-                        <td>20</td>
-                        <td>50</td>
-                        <td>5</td>
-                        <td>
-                           
-                <button id="botaooo" onclick="window.location.href='/configuracoesedicao'" type="button" class="btn btn-outline-warning">
-                  Editar
-                </button>
-                    </td>
+  <div class="container" style="margin-top: 10px;">
+  
+  <div class="row">
+    <div class="col-md-10 text-start"> <p class="fs-3"> Lista de Marcas </p> </div>
+    <div class="col-md-2"> 
+      <div class="d-grid gap-2">
+        <router-link type="button" class="btn btn-success" 
+          to="/configuracoescadastro">Cadastrar
+        </router-link>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">  
+      <table class="table">
+        <thead class="table-secondary" >
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Ativo</th>
+            <th scope="col" class="text-start">Valor por hora</th>
+            <th scope="col" class="text-start">Valor da multa por minuto</th>
+            <th scope="col" class="text-start">Inicio do expediente</th>
+            <th scope="col" class="text-start">Fim do expediente</th>
+            <th scope="col" class="text-start">Tempo desconto</th>
+            <th scope="col" class="text-start">Tempo de desconto</th>
+            <th scope="col" class="text-start">Gerar desconto</th>
+            <th scope="col" class="text-start">Vagas moto</th>
+            <th scope="col" class="text-start">Vagas carro</th>
+            <th scope="col" class="text-start">Vagas van</th>
+            <th scope="col">Opção</th>
+          </tr>
+        </thead>  
+        <tbody class="table-group-divider">
+          
+          <tr v-for="item in configuracoesList" :key="item.id">
+            <th class="col-md-1">{{ item.id }}</th>
+            <th class="col-md-2"> 
+              <span v-if="item.ativo" class="badge text-bg-success"> Ativo </span>
+              <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
+            </th>
+            <th class="text-start">{{ item.valorHora }}</th>
+            <th class="text-start">{{ item.valorMinutoMulta }}</th>
+            <th class="text-start">{{ item.inicioExpediente }}</th>
+            <th class="text-start">{{ item.fimExpediente }}</th>
+            <th class="text-start">{{ item.tempoParaDesconto }}</th>
+            <th class="text-start">{{ item.tempoDeDesconto }}</th>
+            <th class="text-start">{{ item.gerarDesconto }}</th>
+            <th class="text-start">{{ item.vagasMoto }}</th>
+            <th class="text-start">{{ item.vagasCarro }}</th>
+            <th class="text-start">{{ item.vagasVan }}</th>
+            <th class="col-md-2">
+              <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <router-link type="button" class="btn btn-sm btn-warning" 
+                    :to="{ name: 'configuracoes-formulario-editar-view', query: { id: item.id, form: 'editar' } } "> 
+                  Editar 
+                </router-link>
+         
+              </div>
+            </th>
+          </tr>
+  
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+  
+  
+  </template>
 
-                        </tr>
-                    </tbody>
-            </table>
-        </div>
+<script lang="ts">
 
-</div>
+import { defineComponent } from 'vue';
 
+import ConfiguracoesClient from '@/client/configuracao.client';
+import { Configuracao } from '@/model/Configuracao';
 
-</template>
+export default defineComponent({
+  name: 'ConfiguracoesLista',
+  data() {
+    return {
+        configuracoesList: new Array<Configuracao>()
+    }
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+
+    findAll() {
+      ConfiguracoesClient.listaCompleta()
+        .then(sucess => {
+          this.configuracoesList = sucess
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
+});
+  </script>
 
 <style>
 

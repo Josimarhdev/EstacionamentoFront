@@ -29,16 +29,21 @@
       </div>
       <div class="col-md-12 text-start">
         <label class="form-label">Inicio do expediente *</label>
-        <input type="time"  class="form-control" v-model="configuracao.inicioExpediente">
+        <input type="datetime-local"  class="form-control" v-model="configuracao.inicioExpediente">
       </div>
       <div class="col-md-12 text-start">
         <label class="form-label">Fim do expediente *</label>
-        <input type="time"  class="form-control" v-model="configuracao.fimExpediente">
+        <input type="datetime-local"  class="form-control" v-model="configuracao.fimExpediente">
+      </div>
+
+      <div class="col-md-12 text-start">
+        <label class="form-label">Tempo pra desconto *</label>
+        <input type="datetime-local"  class="form-control" v-model="configuracao.tempoParaDesconto">
       </div>
 
       <div class="col-md-12 text-start">
         <label class="form-label">Tempo de desconto *</label>
-        <input type="text"  class="form-control" v-model="configuracao.tempoDeDesconto">
+        <input type="datetime-local"  class="form-control" v-model="configuracao.tempoDeDesconto">
       </div>
 
       <div class="col-md-12 text-start">
