@@ -110,7 +110,19 @@ const routes: Array<RouteRecordRaw> = [
     path: '/cadastromovimentacao',
     name: 'CadastroMovimentacao',
    
-    component: () => import(/* webpackChunkName: "about" */ '../views/CadastroMovimentacao.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/CadastroMovimentacao.vue'),
+    children: [
+      {
+        path: '/cadastromovimentacao',
+        name: 'movimentacao-formulario-editar-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/CadastroMovimentacao.vue')
+      },
+      {
+        path: '/cadastromovimentacao',
+        name: 'movimentacao-formulario-excluir-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/CadastroMovimentacao.vue')
+      }
+    ]
   },
   {
     path: '/configuracoes',
@@ -119,10 +131,10 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Configuracoes.vue')
   },
   {
-    path: '/configuracoesedicao',
-    name: 'ConfiguracoesEdicao',
+    path: '/configuracoescadastro',
+    name: 'ConfiguracoesCadastro',
    
-    component: () => import(/* webpackChunkName: "about" */ '../views/ConfiguracoesEdicao.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/ConfiguracoesCadastro.vue')
   },
   {
     path: '/relatorio',
@@ -149,6 +161,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/cadastroveiculo',
     name: 'veiculo-lista-view',
     component: () => import(/* webpackChunkName: "about" */ '../views/CadastroVeiculo.vue')
+  },
+  {
+    path: '/cadastromovimentacao',
+    name: 'movimentacao-lista-view',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CadastroMovimentacao.vue')
   }
   
 ]

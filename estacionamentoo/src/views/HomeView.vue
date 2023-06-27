@@ -1,128 +1,99 @@
 <template>
-  <div class="mainhome">
-    <div class="hometitulo">
-      <h1>PÁGINA INICIAL</h1>
-    </div>
-    <div class="botao">
-        <button  type="button" onclick="window.location.href='/cadastromovimentacao'" class="btn btn-outline-success">Cadastrar movimentação</button>
-      </div>
-
-    <div class="divtabela">
-      <div class="tabela">
-        <table class="table table-striped table-bordered table-responsive">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Marca</th>
-              <th scope="col">Modelo</th>
-              <th scope="col">CPF</th>          
-              <th scope="col">Placa</th>
-              <th scope="col">Data/hora de entrada</th>
-
-   
-              <th scope="col">Ação</th>
-             
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>João</td>
-              <td>Chevrollet</td>
-              <td>Corvette</td>
-              <td>011.235.351-53</td>
-              <td>SOF-1293</td>
-              <td>18/06/2023 - 12:20:32</td>
-             
-              <td>
-                <div class="dropdown">
-                  <button
-                    class="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Opções
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="/relatorio">Registrar Saída</a>
-                    </li>
-                    <li><a class="dropdown-item" href="#">Editar</a></li>
-                    <li><a class="dropdown-item" href="#">Excluir</a></li>
-                  </ul>
-                </div>
-              </td>
-             
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Maria</td>
-              <td>Porsche</td>
-              <td>911</td>
-              <td>925.512.515-82</td>
-
-              <td>KSE-2935</td>
-              <td>18/06/2023 - 10:51:12</td>
-              <td>
-                <div class="dropdown">
-                  <button
-                    class="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Opções
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="/relatorio">Registrar Saída</a>
-                    </li>
-                    <li><a class="dropdown-item" href="#">Editar</a></li>
-                    <li><a class="dropdown-item" href="#">Excluir</a></li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Carlos</td>
-              <td>Toyota</td>
-              <td>Corolla</td>
-              <td>235.163.725-82</td>
-
-              <td>ISD-2834</td>
-              <td>18/06/2023 - 09:42:52</td>
-              <td>
-                <div class="dropdown">
-                  <button
-                    class="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Opções
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="/relatorio">Registrar Saída</a>
-                    </li>
-                    <li><a class="dropdown-item" href="#">Editar</a></li>
-                    <li><a class="dropdown-item" href="#">Excluir</a></li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
-           
-          </tbody>
-        </table>
+  <div class="container" style="margin-top: 10px;">
+  
+  <div class="row">
+    <div class="col-md-10 text-start"> <p class="fs-3"> Lista de Movimentações ativas </p> </div>
+    <div class="col-md-2"> 
+      <div class="d-grid gap-2">
+        <router-link type="button" class="btn btn-success" 
+          to="/cadastromovimentacao">Cadastrar
+        </router-link>
       </div>
     </div>
   </div>
-</template>
+  
+  <div class="row">
+    <div class="col-md-12">  
+      <table class="table">
+        <thead class="table-secondary" >
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Ativo</th>
+            <th scope="col" class="text-start">Nome</th>
+            <th scope="col" class="text-start">Marca</th>
+            <th scope="col" class="text-start">Modelo</th>
+            <th scope="col" class="text-start">Placa</th>  
+            <th scope="col" class="text-start">Hora de entrada</th>
+            <th scope="col">Opção</th>
+          </tr>
+        </thead>  
+        <tbody class="table-group-divider">
+          
+          <tr v-for="item in movimentacoesList" :key="item.id">
+            <th class="col-md-1">{{ item.id }}</th>
+            <th class="col-md-2"> 
+              <span v-if="item.ativo" class="badge text-bg-success"> Ativo </span>
+              <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
+            </th>
+            <th class="text-start">{{ item.condutor.nome }}</th>
+            <th class="text-start">{{ item.veiculo.modelo.marca.nome}}</th>
+            <th class="text-start">{{ item.veiculo.modelo.nome}}</th> 
+            <th class="text-start">{{ item.veiculo.placa}}</th>
+            <th class="text-start">{{ item.entrada}}</th>
+            <th class="col-md-2">
+              <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <router-link type="button" class="btn btn-sm btn-warning" 
+                    :to="{ name: 'movimentacao-formulario-editar-view', query: { id: item.id, form: 'editar' } } "> 
+                  Editar 
+                </router-link>
+                <router-link type="button" class="btn btn-sm btn-danger" 
+                    :to="{ name: 'movimentacao-formulario-excluir-view', query: { id: item.id, form: 'deletaMovimentacao' } } ">
+                  Excluir
+                </router-link>
+              </div>
+            </th>
+          </tr>
+  
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+  
+  
+  </template>
 
-<script lang="ts"></script>
+<script lang="ts">
+
+import { defineComponent } from 'vue';
+
+import MovimentacaoClient from '@/client/movimentacao.client';
+import { Movimentacao } from '@/model/Movimentacao';
+
+export default defineComponent({
+  name: 'MovimentacaoLista',
+  data() {
+    return {
+        movimentacoesList: new Array<Movimentacao>()
+    }
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+
+    findAll() {
+      MovimentacaoClient.listaCompleta()
+        .then(sucess => {
+          this.movimentacoesList = sucess
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
+});
+  </script>
 
 <style>
 .mainhome {
