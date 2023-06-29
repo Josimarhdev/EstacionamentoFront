@@ -19,25 +19,34 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12 text-start">
-        <label for="recipient-name" class=" row m-auto col-form-label">Nome do condutor:</label>
-        <select type="text" v-model="movimentacao.condutor"><option v-for="item in condutor" :value="item">{{ item.nome }} </option></select>
-      </div>
+    <div class="col-md-12 text-start">
+      <label for="recipient-name" class="row m-auto col-form-label">Nome do condutor:</label>
+      <select type="text" v-model="movimentacao.condutor" :disabled="form === 'editar'">
+        <option v-for="item in condutor" :value="item">{{ item.nome }}</option>
+      </select>
+    </div>
 
-      <div class="col-md-12 text-start">
-        <label for="recipient-name" class=" row m-auto col-form-label">Placa:</label>
-        <select type="text" v-model="movimentacao.veiculo"><option v-for="item in veiculo" :value="item">{{ item.placa }} </option></select>
-      </div>
+    <div class="col-md-12 text-start">
+      <label for="recipient-name" class="row m-auto col-form-label">Placa:</label>
+      <select type="text" v-model="movimentacao.veiculo" :disabled="form === 'editar'">
+        <option v-for="item in veiculo" :value="item">{{ item.placa }}</option>
+      </select>
+    </div>
 
-      <div class="col-md-12 text-start">
-        <label for="recipient-name" class=" row m-auto col-form-label">Modelo:</label>
-        <select type="text" v-model="movimentacao.veiculo"><option v-for="item in veiculo" :value="item">{{ item.modelo.nome }} </option></select>
-      </div>
+    <div class="col-md-12 text-start">
+      <label for="recipient-name" class="row m-auto col-form-label">Modelo:</label>
+      <select type="text" v-model="movimentacao.veiculo" :disabled="form === 'editar'">
+        <option v-for="item in veiculo" :value="item">{{ item.modelo.nome }}</option>
+      </select>
+    </div>
 
-      <div class="col-md-12 text-start">
-        <label for="recipient-name" class=" row m-auto col-form-label">Marca:</label>
-        <select type="text" v-model="movimentacao.veiculo"><option v-for="item in veiculo" :value="item">{{ item.modelo.marca.nome }} </option></select>
-      </div>
+    <div class="col-md-12 text-start">
+      <label for="recipient-name" class="row m-auto col-form-label">Marca:</label>
+      <select type="text" v-model="movimentacao.veiculo" :disabled="form === 'editar'">
+        <option v-for="item in veiculo" :value="item">{{ item.modelo.marca.nome }}</option>
+      </select>
+    </div>
+  </div>
 
 
     </div>
@@ -58,16 +67,16 @@
           </button>
           <button v-if="form === 'editar'" type="button" 
               class="btn btn-warning" @click="onClickEditar()">
-            Editar 
+            Registrar saída
           </button>
           <button v-if="form === 'deletaMovimentacao'" type="button"
             class="btn btn-danger" @click="onClickExcluir()">
-            Excluir 
+            Desativar
           </button>
         </div>
       </div>
     </div>
-  </div>
+ 
 
 </template>
 

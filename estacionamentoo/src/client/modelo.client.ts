@@ -19,7 +19,7 @@ class ModeloClient {
       try {
           return (await this.axiosClient.get<Modelo>(`/${id}`)).data
       } catch (error:any) {
-          return Promise.reject(error.response)
+          return Promise.reject(error.response.data)
       }
   }
 
@@ -27,7 +27,7 @@ class ModeloClient {
     try {
         return (await this.axiosClient.get<Modelo[]>(`/lista`)).data
     } catch (error:any) {
-        return Promise.reject(error.response)
+        return Promise.reject(error.response.data)
     }
 }
 
@@ -36,7 +36,7 @@ class ModeloClient {
         try {
           return (await this.axiosClient.get<Modelo[]>(`/ativos/${ativo}`)).data;
         } catch (error: any) {
-          return Promise.reject(error.response);
+          return Promise.reject(error.response.data);
         }
       }
 
@@ -44,7 +44,7 @@ class ModeloClient {
         try {
             return (await this.axiosClient.post<string>(``, modelo)).data
         } catch (error:any) {
-            return Promise.reject(error.response)
+            return Promise.reject(error.response.data)
         }
     }
 
@@ -52,7 +52,7 @@ class ModeloClient {
       try {
           return (await this.axiosClient.put<string>(`/${id}`, modelo)).data
       } catch (error:any) {
-          return Promise.reject(error.response)
+          return Promise.reject(error.response.data)
       }
   }
 
@@ -60,7 +60,7 @@ class ModeloClient {
     try {
         return (await this.axiosClient.delete<string>(`/${id}`)).data
     } catch (error:any) {
-        return Promise.reject(error.response)
+        return Promise.reject(error.response.data)
     }
 }
 

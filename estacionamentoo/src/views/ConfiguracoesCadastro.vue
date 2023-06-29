@@ -3,7 +3,7 @@
   <div class="container" style="background: ;">
 
     <div class="row">
-      <div class="col-md-10 text-start"> <p class="fs-3"> Cadastrar de Marca </p> </div>
+      <div class="col-md-10 text-start"> <p class="fs-3"> Cadastro de configuração </p> </div>
       <div class="col-md-2"> </div>
     </div>
 
@@ -38,12 +38,12 @@
 
       <div class="col-md-12 text-start">
         <label class="form-label">Tempo pra desconto *</label>
-        <input type="datetime-local"  class="form-control" v-model="configuracao.tempoParaDesconto">
+        <input type="number" class="form-control" v-model="configuracao.tempoParaDesconto">
       </div>
 
       <div class="col-md-12 text-start">
         <label class="form-label">Tempo de desconto *</label>
-        <input type="datetime-local"  class="form-control" v-model="configuracao.tempoDeDesconto">
+        <input type="number"  class="form-control" v-model="configuracao.tempoDeDesconto">
       </div>
 
       <div class="col-md-12 text-start">
@@ -73,7 +73,7 @@
       <div class="col-md-3 offset-md-6"> 
         <div class="d-grid gap-2">
           <router-link type="button" class="btn btn-info" 
-            to="/marca">Voltar
+            to="/configuracoes">Voltar
           </router-link>
         </div>
       </div>

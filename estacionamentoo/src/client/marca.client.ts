@@ -19,7 +19,7 @@ class MarcaClient {
       try {
           return (await this.axiosClient.get<Marca>(`/${id}`)).data
       } catch (error:any) {
-          return Promise.reject(error.response)
+          return Promise.reject(error.response.data)
       }
   }
 
@@ -27,7 +27,7 @@ class MarcaClient {
     try {
         return (await this.axiosClient.get<Marca[]>(`/lista`)).data
     } catch (error:any) {
-        return Promise.reject(error.response)
+        return Promise.reject(error.response.data)
     }
 }
 
@@ -36,7 +36,7 @@ class MarcaClient {
         try {
           return (await this.axiosClient.get<Marca[]>(`/ativos/${ativo}`)).data;
         } catch (error: any) {
-          return Promise.reject(error.response);
+          return Promise.reject(error.response.data);
         }
       }
 
@@ -44,7 +44,7 @@ class MarcaClient {
         try {
             return (await this.axiosClient.post<string>(``, marca)).data
         } catch (error:any) {
-            return Promise.reject(error.response)
+            return Promise.reject(error.response.data)
         }
     }
 
@@ -52,7 +52,7 @@ class MarcaClient {
       try {
           return (await this.axiosClient.put<string>(`/${id}`, marca)).data
       } catch (error:any) {
-          return Promise.reject(error.response)
+          return Promise.reject(error.response.data)
       }
   }
 
@@ -60,7 +60,7 @@ class MarcaClient {
     try {
         return (await this.axiosClient.delete<string>(`/${id}`)).data
     } catch (error:any) {
-        return Promise.reject(error.response)
+        return Promise.reject(error.response.data)
     }
 }
 

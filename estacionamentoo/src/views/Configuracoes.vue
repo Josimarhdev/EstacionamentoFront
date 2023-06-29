@@ -1,11 +1,11 @@
 <template>
-  <div class="container" style="margin-top: 10px;">
+  <div class="container" style="margin-top: 40px;">
   
   <div class="row">
-    <div class="col-md-10 text-start"> <p class="fs-3"> Lista de Marcas </p> </div>
+    <div class="col-md-10 text-start"> <p class="fs-2"> Lista de Configurações </p> </div>
     <div class="col-md-2"> 
       <div class="d-grid gap-2">
-        <router-link type="button" class="btn btn-success" 
+        <router-link v-if="!configuracoesList.length" type="button" class="btn btn-success" 
           to="/configuracoescadastro">Cadastrar
         </router-link>
       </div>
@@ -104,64 +104,9 @@ export default defineComponent({
 
 <style>
 
-    .divtabela{
+   :scope{font-size:13px;} 
 
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        
-    }
-      .mainconfigs{
-        flex-direction: column;
-        min-height: 79.8vh;
-        display: flex;
-        align-items: center;
-       
-        width: 100%;
-        height: 100%;
-
-        }
-
-    
-      button{
-
-        margin: 2px;
-
-      }
-
-      .titconfig{
-
-        display: flex;
-        margin-top: 50px;
-        justify-content: center;
-        height:15vh;
-        width: 100%;
       
-
-      }
-
-      .mainconfigs h1{
-
-
-
-
-  
-  
-  font-size: 50px;
-  font-weight: bold;
-  color: black;
- 
-  text-transform: uppercase;
-  text-decoration: underline;
-  letter-spacing: 2px;
-  height: 10vh;
-
-
-
-      }
 
 
 </style>

@@ -19,7 +19,7 @@ class ConfiguracaoClient {
       try {
           return (await this.axiosClient.get<Configuracao>(`/${id}`)).data
       } catch (error:any) {
-          return Promise.reject(error.response)
+          return Promise.reject(error.response.data)
       }
   }
 
@@ -27,7 +27,7 @@ class ConfiguracaoClient {
     try {
         return (await this.axiosClient.get<Configuracao[]>(`/lista`)).data
     } catch (error:any) {
-        return Promise.reject(error.response)
+        return Promise.reject(error.response.data)
     }
 }
 
@@ -40,7 +40,7 @@ class ConfiguracaoClient {
         try {
             return (await this.axiosClient.post<string>(``, configuracao)).data
         } catch (error:any) {
-            return Promise.reject(error.response)
+            return Promise.reject(error.response.data)
         }
     }
 
@@ -48,7 +48,7 @@ class ConfiguracaoClient {
       try {
           return (await this.axiosClient.put<string>(`/${id}`, configuracao)).data
       } catch (error:any) {
-          return Promise.reject(error.response)
+          return Promise.reject(error.response.data)
       }
   }
 

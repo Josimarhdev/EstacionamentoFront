@@ -1,11 +1,11 @@
 <template>
-  <div class="container" style="margin-top: 10px;">
+  <div class="container" style="margin-top: 40px;">
   
   <div class="row">
-    <div class="col-md-10 text-start"> <p class="fs-3"> Lista de Movimentações ativas </p> </div>
+    <div class="col-md-10 text-start"> <p class="fs-2"> <strong>Lista de Movimentações</strong></p> </div>
     <div class="col-md-2"> 
       <div class="d-grid gap-2">
-        <router-link type="button" class="btn btn-success" 
+        <router-link type="button" class="btn btn-outline-success" 
           to="/cadastromovimentacao">Cadastrar
         </router-link>
       </div>
@@ -44,11 +44,11 @@
               <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                 <router-link type="button" class="btn btn-sm btn-warning" 
                     :to="{ name: 'movimentacao-formulario-editar-view', query: { id: item.id, form: 'editar' } } "> 
-                  Editar 
+                  Registrar saída 
                 </router-link>
                 <router-link type="button" class="btn btn-sm btn-danger" 
                     :to="{ name: 'movimentacao-formulario-excluir-view', query: { id: item.id, form: 'deletaMovimentacao' } } ">
-                  Excluir
+                  Desativar
                 </router-link>
               </div>
             </th>
@@ -96,47 +96,13 @@ export default defineComponent({
   </script>
 
 <style>
-.mainhome {
+.container {
   background-color: white;
-  min-height: 79.8vh;
+  min-height: 74.5vh;
 }
 
-.botao {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  height: 100px;
 
-}
 
-.divtabela {
-  width: 100%;
-
-  display: flex;
-  
-  justify-content: flex-start;
-  align-items: flex-start;
-
-}
-
-.tabela {
-  width: 100%;
-}
-
-.hometitulo h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  font-size: 50px;
-  font-weight: bold;
-  color: black;
-  text-transform: uppercase;
-  text-decoration: underline;
-  letter-spacing: 2px;
-  height: 18vh;
-
-}
 
 </style>
